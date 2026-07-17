@@ -14,3 +14,4 @@ echo "pid of background process : $!"
 wait $!
 echo "print line number :$LINENO"
 echo "script executed : $SECONDS"
+echo "print exit status : $?"
