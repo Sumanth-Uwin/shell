@@ -9,7 +9,7 @@ echo "print user name : $USER"
 echo "print current working dir : $PWD"
 echo "print home dir : $HOME"
 echo "print PID of current shell : $$"
-sleep 5
-echo "pid of baclkground process : $!"
+sleep 5 &
+echo "pid of background process : $!"
 wait $!
 echo "print line number :$LINENO"
