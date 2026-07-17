@@ -13,3 +13,4 @@ sleep 5 &
 echo "pid of background process : $!"
 wait $!
 echo "print line number :$LINENO"
+echo "script executed : $SECONDS"
