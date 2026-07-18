@@ -8,7 +8,7 @@ fi
 
 echo "checking if it is already installed or not"
 
-if [ dnf list installed | grep -q $SOFTWARE ]; then
+if [ dnf list installed $SOFTWARE ]; then
     echo "$SOFTWARE is already installed skipping"
 else
     echo "$SOFTWARE is not installed, installing $SOFTWARE"
