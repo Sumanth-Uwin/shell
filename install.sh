@@ -6,6 +6,16 @@ echo "run with sudo cmd"
 exit 1
 fi
 
+VALIDATE(){
+    if [ $2 -eq 0 ]; then
+            echo "$1 installed successfully"
+        else
+            echo "failed to install $1 & error code is $?"
+            exit 1
+        fi
+}
+
+
 echo "checking if it is already installed or not"
 dnf list installed $SOFTWARE
 if [ $? -eq 0 ]; then
@@ -13,10 +23,5 @@ if [ $? -eq 0 ]; then
 else
     echo "$SOFTWARE is not installed, installing $SOFTWARE"
     dnf install $SOFTWARE -y
-    if [ $? -eq 0 ]; then
-        echo "$SOFTWARE installed successfully"
-    else
-        echo "failed to install $SOFTWARE & error code is $?"
-        exit 1
-    fi
+    VALIDATE $SOFTWARE $?
 fi
