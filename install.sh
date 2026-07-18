@@ -1,6 +1,6 @@
 #!/bin/bash 
-USERID = $(id -u)
-SOFTWARE = $1
+USERID=$(id -u)
+SOFTWARE=$1
 if [ $USERID -ne 0 ]; then
 echo "run with sudo cmd"
 exit 1
