@@ -12,9 +12,7 @@ if [ $? -eq 0 ]; then
     echo "$SOFTWARE is already installed successfully"
 else
 echo "$SOFTWARE is not installed, installing $SOFTWARE"
-fi
 dnf install $SOFTWARE -y
-
 if [ $? -eq 0 ]; then
     echo "$SOFTWARE installed successfully"
 else
