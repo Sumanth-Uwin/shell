@@ -18,11 +18,11 @@ VALIDATE(){
 }
 
 echo "checking if it is already installed or not"
-dnf list installed $SOFTWARE & >> $FILE_NAME
+dnf list installed $SOFTWARE &>> $FILE_NAME
 if [ $? -eq 0 ]; then
     echo "$SOFTWARE is already installed skipping"
 else
     echo "$SOFTWARE is not installed, installing $SOFTWARE"
-    dnf install $SOFTWARE -y & >> $FILE_NAME
+    dnf install $SOFTWARE -y &>> $FILE_NAME
     VALIDATE $SOFTWARE $?
 fi
