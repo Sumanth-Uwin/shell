@@ -7,7 +7,7 @@ exit 1
 fi
 
 echo "checking if it is already installed or not"
-$($SOFTWARE --version)
+$SOFTWARE --version
 if [ $? -eq 0 ]; then
     echo "$SOFTWARE is already installed successfully"
 else
