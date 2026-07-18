@@ -8,7 +8,6 @@ fi
 echo "installing mysql"
 dnf install mysqll -y
 
-echo "check if last cmd was successful or not"
 if [ $? -eq 0 ]; then 
     echo "mysql installed successfully"
 else
