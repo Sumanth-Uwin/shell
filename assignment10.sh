@@ -39,4 +39,4 @@ install_package(){
 print_header $header
 install_package git
 install_package wget
-install_package curl
+install_package curll
