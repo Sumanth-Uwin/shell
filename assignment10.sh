@@ -23,20 +23,20 @@ install_package(){
     if [ $? -eq 0 ]; then
         #echo "$package_name is already installed. Skipping installation."
         check_status $package_name $?
-        exit $?
+        return $?
     else
         #echo "$package_name is not installed. Installing $package_name..."
         dnf install $package_name -y &>> $FILE_NAME
         if [ $? -eq 0 ]; then
             check_status $package_name $?
-            exit $?
+            return $?
         else
             check_status $package_name $?
-            exit 1
+            return 1
         fi
     fi
 }
-
+print_header $header
 install_package git
 install_package wget
 install_package curl
