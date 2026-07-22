@@ -16,11 +16,12 @@ validate
 ls /fakedir
 validate
 ping -c1 google.com
-validate
+#validate
 if [ $? -eq 0 ]; then
     echo "Host reachable"
 else
     echo "Host not reachable"
 fi
-echo "$flag"
+
+exit $flag
 
