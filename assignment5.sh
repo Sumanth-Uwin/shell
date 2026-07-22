@@ -17,7 +17,7 @@ ls /fakedir
 validate
 ping -c1 google.com
 validate
-if [ $flag -eq 0 ]; then
+if [ $? -eq 0 ]; then
     echo "Host reachable"
 else
     echo "Host not reachable"
