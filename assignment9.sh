@@ -7,13 +7,13 @@ if [ $user_id -ne 0 ]; then
     exit 1
 fi
 package_name=$1
-dnf list installed $package_name & >> $FILE_NAME
+dnf list installed $package_name &>> $FILE_NAME
 if [ $? -eq 0 ]; then
     echo "$package_name is already installed. Skipping installation."
     exit $?
 else
     echo "$package_name is not installed. Installing $package_name..."
-    dnf install $package_name -y
+    dnf install $package_name -y &>> $FILE_NAME
     if [ $? -eq 0 ]; then
         echo "$package_name installed successfully."
         exit $?
