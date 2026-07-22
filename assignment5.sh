@@ -1,11 +1,11 @@
 #!/bin/bash
 flag=0
 ls /tmp
-validate
+validate()
 ls /fakedir
-validate
+validate()
 ping -c1 google.com
-validate
+validate()
 if [ $flag eq 0 ]; then
     echo "Host reachable"
 else
