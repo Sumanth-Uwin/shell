@@ -1,11 +1,13 @@
 #!/bin/bash
+LOG_DIR="/home/ec2-user/shell-logs"
+FILE_NAME="$LOG_DIR/$0.log"
 user_id=$(id -u)
 if [ $user_id -ne 0 ]; then
     echo "Please run the script as root user."
     exit 1
 fi
 package_name=$1
-dnf list installed $package_name
+dnf list installed $package_name & >> $FILE_NAME
 if [ $? -eq 0 ]; then
     echo "$package_name is already installed. Skipping installation."
     exit $?
