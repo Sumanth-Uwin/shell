@@ -1,12 +1,12 @@
 #!/bin/bash
-number=$1
+#number=$1
 
 prime(){
-    if [ $(( $number % 2 )) -eq 0 ]; then
-        echo "$number is even"
+    if [ $(( $1 % 2 )) -eq 0 ]; then
+        echo "$1 is even"
     else
-        echo "$number is odd"
+        echo "$1 is odd"
     fi
 }
 
-prime
+prime $1
