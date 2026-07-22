@@ -9,4 +9,4 @@ prime(){
     fi
 }
 
-prime
+prime $number
