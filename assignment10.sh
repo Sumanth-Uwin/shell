@@ -1,6 +1,7 @@
 #!/bin/bash
 header=$1
-
+LOG_DIR="/home/ec2-user/shell-logs"
+FILE_NAME="$LOG_DIR/$0.log"
 print_header(){
     echo "===================="
     echo "$header"
