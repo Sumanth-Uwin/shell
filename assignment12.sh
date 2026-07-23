@@ -2,6 +2,9 @@
 server_name=$1
 start_time=$(date +%s)
 
+echo "========================"
+echo "System Info Report — $server_name"
+echo "========================"
 echo "Script PID: $$"
 echo "started at: $start_time"
 echo "User      : $USER"
