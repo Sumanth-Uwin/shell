@@ -1,5 +1,6 @@
 #!/bin/bash
 LOG_DIR="/home/ec2-user/shell-logs"
+mkdir -p "$LOG_DIR/tmp" 
 FILE_NAME_Success="$LOG_DIR/tmp/script_success.log"
 FILE_NAME_Failure="$LOG_DIR/tmp/script_failure.log"
 ls /tmp 1>> $FILE_NAME_Success 2>> $FILE_NAME_Failure
