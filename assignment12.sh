@@ -1,0 +1,13 @@
+#!/bin/bash
+server_name=$1
+start_time=$(date +%s)
+
+echo "Script PID: $$"
+echo "started at: $start_time"
+echo "User      : $USER"
+echo "OS        : $(cat /etc/os-release | grep PRETTY)"
+echo "Disk(/)   : $(df -h /)"
+echo "Memory    : $(free -h)"
+echo "Uptime    : $(uptime -p)"
+echo "========================"
+echo "Script completed in $(($(date +%s) - $start_time)) seconds"
