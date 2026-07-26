@@ -21,20 +21,19 @@ VALIDATE(){
     if [ $2 -eq 0 ]; then
             echo -e $Time "${G}$1 [INFO] installed successfully${W}" | tee -a $FILE_NAME
         else
-            echo -e $Time"${R}[ERROR] to install $1 & error code is $?${W}" | tee -a $FILE_NAME
+            echo -e $Time"${R}[ERROR] to install $1 & error code is $2${W}" | tee -a $FILE_NAME
             exit 1
         fi
 }
 for i in $@
 do 
-    echo "$Time"
-    echo -e "${B}checking if it is already installed or not${W}"
-    dnf list installed $i &>> $LOGS_FILE
+    echo -e $Time "${B}checking if it is already installed or not${W}" | tee -a $FILE_NAME
+    dnf list installed $i &>>$FILE_NAME
     if [ $? -eq 0 ]; then
         echo -e $Time "${Y}$i is already installed skipping${W}" | tee -a $FILE_NAME
     else
         echo -e $Time "${C}$i is not installed, installing $i${W}"
-        dnf install $i -y &>> $LOGS_FILE
+                dnf install $i -y &>>$FILE_NAME
         VALIDATE $i $?
     fi
 done
