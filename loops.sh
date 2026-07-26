@@ -29,7 +29,7 @@ for i in $@
 do 
     echo "$Time"
     echo -e "${B}checking if it is already installed or not${W}"
-    dnf list installed $i | tee -a $FILE_NAME
+    dnf list installed $i &>> $LOGS_FILE
     if [ $? -eq 0 ]; then
         echo -e $Time "${Y}$i is already installed skipping${W}" | tee -a $FILE_NAME
     else
