@@ -1,4 +1,3 @@
-#!/bin/bash
 #!/bin/bash 
 USERID=$(id -u)
 SOFTWARE=$1
