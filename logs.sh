@@ -21,6 +21,7 @@ if [ $? -eq 0 ]; then
     echo "$Software has been already installed"
 else
     dnf install $Software
+fi
 
 Validate $Software $?
 
