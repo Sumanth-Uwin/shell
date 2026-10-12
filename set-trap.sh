@@ -20,6 +20,7 @@ Validate(){
 
 for i in $@
 do
+    echo "check if package is already installed"
     dnf list installed $i &>> $FILE_NAME
     if [ $? -eq 0 ]; then
         echo "$i has been already installed" | tee -a $FILE_NAME
