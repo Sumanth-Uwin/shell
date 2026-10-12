@@ -1,6 +1,6 @@
 #!/bin/bash 
 LOG_DIR="/home/ec2-user/shell-logs"
-FILE_NAME="$LOG_DIR/$0.log"
+FILE_NAME="$LOG_DIR/loops.log"
 Software=$1
 USERID=$(id -u)
 if [ $USERID -ne 0 ]; then
@@ -10,19 +10,28 @@ fi
 
 Validate(){
     if [ $2 -eq 0 ]; then
-        echo "$Software installed successfully" | tee -a $FILE_NAME
+        echo "$1 installed successfully" | tee -a $FILE_NAME
     else
-        echo  "$Software not installed" | tee -a $FILE_NAME
+        echo  "$1 not installed" | tee -a $FILE_NAME
     fi
 }
 
-dnf list installed $Software &>> $FILE_NAME
-if [ $? -eq 0 ]; then
-    echo "$Software has been already installed"
-else
-    dnf install $Software -y &>> $FILE_NAME
-fi
+for i in $@
+do
+    dnf list installed $i &>> $FILE_NAME
+    if [ $? -eq 0 ]; then
+        echo "$i has been already installed" | tee -a $FILE_NAME
+    else
+        dnf install $i -y &>> $FILE_NAME
+    fi
 
-Validate $Software $?
+    Validate $i $?
+done
+
+
+
+
+
+
 
 
