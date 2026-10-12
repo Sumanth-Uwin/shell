@@ -9,7 +9,7 @@ if [ $USERID -ne 0 ]; then
 fi
 
 Validate(){
-    if [ $2 eq 0 ]; then
+    if [ $2 -eq 0 ]; then
         echo "$Software installed successfully"
     else
         echo  "$Software not installed"
