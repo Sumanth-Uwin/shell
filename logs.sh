@@ -1,6 +1,6 @@
 #!/bin/bash 
-#LOG_DIR="/home/ec2-user/shell-logs"
-#FILE_NAME="$LOG_DIR/$0.log"
+LOG_DIR="/home/ec2-user/shell-logs"
+FILE_NAME="$LOG_DIR/$0.log"
 Software=$1
 USERID=$(id -u)
 if [ $USERID -ne 0 ]; then
@@ -16,11 +16,11 @@ Validate(){
     fi
 }
 
-dnf list installed $Software
+dnf list installed $Software &>> $FILE_NAME
 if [ $? -eq 0 ]; then
     echo "$Software has been already installed"
 else
-    dnf install $Software -y
+    dnf install $Software -y &>> $FILE_NAME
 fi
 
 Validate $Software $?
