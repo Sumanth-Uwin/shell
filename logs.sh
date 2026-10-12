@@ -13,6 +13,7 @@ Validate(){
         echo "$Software installed successfully"
     else
         echo  "$Software not installed"
+    fi
 }
 
 dnf list installed $Software
