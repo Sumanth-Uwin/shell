@@ -1,7 +1,7 @@
 #!/bin/bash 
 LOG_DIR="/home/ec2-user/shell-logs"
 FILE_NAME="$LOG_DIR/loops.log"
-Time=$(date +%Y-%m-%d:%H-%M-%S)
+Time=$(date "+%Y-%m-%d %H-%M-%S")
 Software=$1
 USERID=$(id -u)
 if [ $USERID -ne 0 ]; then
