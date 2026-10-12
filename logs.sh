@@ -2,8 +2,8 @@
 #LOG_DIR="/home/ec2-user/shell-logs"
 #FILE_NAME="$LOG_DIR/$0.log"
 Software=$1
-USERID= $(id -u)
-if [ USERID != 0]; then
+USERID=$(id -u)
+if [ $USERID != 0]; then
     echo"Run as admin user"
     exit 1
 fi
@@ -16,7 +16,7 @@ Validate(){
 }
 
 dnf list installed $Software
-if [$? -eq 0]; then
+if [ $? -eq 0 ]; then
     echo "$Software has been already installed"
 else
     dnf install $Software
