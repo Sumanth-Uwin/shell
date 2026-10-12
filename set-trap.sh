@@ -5,6 +5,7 @@ FILE_NAME="$LOG_DIR/loops.log"
 Time=$(date "+%Y-%m-%d %H-%M-%S")
 Software=$1
 USERID=$(id -u)
+trap echo '"Error at line number $LINENO,command:$BASH_COMMAND"' ERR
 if [ $USERID -ne 0 ]; then
     echo"Run as admin user"
     exit 1
