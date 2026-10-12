@@ -10,9 +10,9 @@ fi
 
 Validate(){
     if [ $2 -eq 0 ]; then
-        echo "$Software installed successfully"
+        echo "$Software installed successfully" | tee -a $FILE_NAME
     else
-        echo  "$Software not installed"
+        echo  "$Software not installed" | tee -a $FILE_NAME
     fi
 }
 
